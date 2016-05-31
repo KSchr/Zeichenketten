@@ -16,7 +16,7 @@ int main()
 
 
 Start:
-    cout<<"Zum Beenden druecken Sie die 0!"<<endl<<"Aufgabe (1-4): ";cin>>Aufg;
+    cout<<"Zum Beenden druecken Sie die 0!"<<endl<<"Aufgabe (1-7): ";cin>>Aufg;
     switch (Aufg) {
 
 case 0:
