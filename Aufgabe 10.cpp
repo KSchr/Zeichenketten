@@ -108,6 +108,35 @@ int main()
             dec[d0] = '\0';                             /* Dezimalstring mit \0 abschließen */
 
 /********** UMWANDLUNG Binär->Hexadezimal **********/
+            //2^4 = 16 -> vier Binärstellen = eine Hexadezimalstelle -> von rechts nach links
+            len = strlen(bin)-1; char hexh[5];
+                                                        cout<<endl<<endl<<"Hexadezimal"<<endl;
+            do{
+                x=0;
+                hexh[4] = '\0';                         /* Hilfsstring mit \0 beenden */
+                for (i=0; i<4; i++) {                   /* hinterer Dreierblock der Binärzahl abtrennen und ggf mit 0 auffüllen */
+                    if ((len-i)<0){
+                        hexh[3-i] = '0';
+                    }
+                    else{
+                        hexh[3-i] = bin[len-i];
+                    }
+                }                                       cout << hexh << endl;
+
+                for (i=0; i<4; i++) {                   /* Berechnung des Dezimalwerts des Viererblocks */
+                    if (hexh[i] == '1') {
+                        x = x + powa(2,(3-i));
+                    }                                   cout<<"i: "<<i<<"\tx: "<<x<<endl;
+                }
+                if (x<10) {
+                    hex[(len/4)] = '0' + x;             /* Hat x einen Wert zwischen 0&9, kann die Zahl so als Zeichen übernommen werden */
+                }
+                else {
+                    hex[(len/4)] = 'A' + (x-10);        /* Hat x einen Wert zwischen 10&15, muss sie in einen Buchstaben zwischen A&F umgewandelt werden */
+                }
+                len = len-4;
+            }while(len>=0);
+            hex[((strlen(bin)-1)/4+1)] = '\0';          /* Oktalstring mit \0 beenden - muss scheinbar als letztes passieren oO *//* -1 und später +1, weil es sonst bei Fall mod3=0 zu Fehler kommt */
 
 /********** UMWANDLUNG ENDE **********/
 
