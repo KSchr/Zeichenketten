@@ -105,6 +105,57 @@ case 5:
 break;
 
 
+case 6:
+    cout<<"Zaehlen"<<endl<<endl;
+
+    q=0; w=0; e=-1;
+    cout<<"Satz eingeben und mit . beenden:";
+    while(c != '.') {
+        c = getchar();
+        if (c >= 48 && c <= 57) {
+            q++;
+        }
+        else {
+            if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) {
+                w++;
+            }
+            else {
+                e++;
+            }
+        }
+        putchar(c);
+    }
+
+    cout<<endl<<endl;
+    cout<<"numerische Zeichen: "<<q<<endl;
+    cout<<"alphabetische Zeichen: "<<w<<endl;
+    cout<<"Sonderzeichen (+Space): "<<e<<endl;
+break;
+
+
+case 7:
+    cout<<"Woerter Zaehlen"<<endl<<endl;
+
+    w=0;
+    boo=true;
+    cout<<"Satz eingeben und mit . beenden:";
+    while(c != '.') {
+        c = getchar();
+        if (c==' ') {
+            boo = true;
+        }
+        if (c!=' ' && boo==true) {
+            w++;
+            boo=false;
+        }
+        putchar(c);
+    }
+
+    cout<<endl<<endl;
+    cout<<"Anzahl Woerter: "<<w<<endl;
+break;
+
+
 default:
     cout << endl << endl;
     cerr << "Die Loesung zu einer solchen Aufgabe existiert in diesem Programm nicht..." << endl << "damn ._." << endl << endl << endl << endl;
