@@ -89,6 +89,23 @@ int main()
             oct[((strlen(bin)-1)/3+1)] = '\0';          /* Oktalstring mit \0 beenden - muss scheinbar als letztes passieren oO *//* -1 und später +1, weil es sonst bei Fall mod3=0 zu Fehler kommt */
 
 /********** UMWANDLUNG Binär->Dezimal **********/
+            len = strlen(bin)-1; x = 0; int d, d0, y; i = 0;
+                                                        cout<<endl<<endl<<"Dezimal"<<endl;
+            while(len>=0) {
+                if (bin[i] == '1') {
+                    x = x + powa(2,len);                 /* Binärzahl per 2^len in Dezimalzahl umwandeln */
+                }                                       cout<<"bin: "<<bin[i]<<"\tpow: 2^"<<len<<"\tx: "<<x<<endl;
+                i++;
+                len--;
+            }
+            d0 = countdigits(x);                        /*Anzahl der Stellen der Dezimalzahl errechnen*/
+            i = 0;
+            for (d=d0-1; d>=0; d--) {
+                y = x/10;   y = y*10;                   /* y = x mit der letzten Ziffer 0 -> x:2756, y:2750 | x:841, y:840 usw. */   cout<<"d: "<<d<<"\tx: "<<x<<"\ty: "<<y<<"\tx-y: "<<x-y<<endl;
+                dec[d] = '0' + (x-y);                   /* Ziffer an Stelle d zurück in Zeichen an Stelle d umwandeln */
+                x = x/10;
+            }
+            dec[d0] = '\0';                             /* Dezimalstring mit \0 abschließen */
 
 /********** UMWANDLUNG Binär->Hexadezimal **********/
 
