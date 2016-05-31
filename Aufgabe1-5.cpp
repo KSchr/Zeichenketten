@@ -16,7 +16,7 @@ int main()
 
 
 Start:
-    cout<<"Zum Beenden druecken Sie die 0!"<<endl<<"Aufgabe (1-7): ";cin>>Aufg;
+    cout<<"Zum Beenden druecken Sie die 0!"<<endl<<"Aufgabe (1-4): ";cin>>Aufg;
     switch (Aufg) {
 
 case 0:
@@ -56,6 +56,52 @@ case 3:
     if (str3[0] >= 97 && str3[0] <= 122)
         str3[0] = str3[0] - 32;
     cout<<endl<<endl<<str3;
+break;
+
+
+/*case 4:
+    cout<<"Zeichen kuerzen! (1)"<<endl<<endl;
+
+    cout<<"Wort (max. 10 Zeichen) eingeben: "; cin>>str4;
+    str4[5] = '\0';
+
+    cout<<endl<<endl<<str4;
+break;*/
+//case 4 mit getchar/putchar. Index i hochzählen für while-Schleife?
+case 4:
+    cout << "Zeichen beschraenken!"<<endl<<endl;
+    i = 0;
+
+    cout<<"Wort eingeben (max. 5 Zeichen gueltig): ";
+    while (i<=5) {
+        c = getchar();
+        putchar(c);
+        i++;
+    }
+    cout<<endl<<endl;
+break;
+
+case 5:
+    cout<<"Klein- zu Grossschreibung! (2)"<<endl<<endl;
+
+    boo = true;
+    cout<<"Satz eingeben und mit . beenden:";
+    do
+    {
+        c = getchar();
+        if (boo == true) {
+            if (c >= 97 && c <= 122) {
+                c = c - 32;
+            }
+            boo = false;
+        }
+        if (c == ' ') {
+            boo = true;
+        }
+        putchar(c);
+    }while(c != '.');
+
+    cout<<endl<<endl;
 break;
 
 
